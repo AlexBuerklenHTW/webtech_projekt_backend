@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.example.webtechProjekt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class WebtechProjektApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(WebtechProjektApplication.class, args);
 	}
 
 }

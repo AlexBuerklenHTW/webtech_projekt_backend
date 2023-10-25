@@ -1,4 +1,4 @@
-package com.example.webtechProjekt;
+package com.example.webtechProjekt.Api.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,5 +10,6 @@ public class HelloController {
     public String index() {
         return "Greetings from Phillip Frey and Alexander Bürklen!";
     }
-
 }
+
+

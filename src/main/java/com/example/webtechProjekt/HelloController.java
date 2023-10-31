@@ -1,4 +1,4 @@
-package com.example.webtechProjekt.api.controller;
+package com.example.webtechProjekt;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

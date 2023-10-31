@@ -11,5 +11,3 @@ public class HelloController {
         return "Greetings from Phillip Frey and Alexander Bürklen!";
     }
 }
-
-

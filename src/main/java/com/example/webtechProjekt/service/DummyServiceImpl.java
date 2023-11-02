@@ -29,14 +29,16 @@ public class DummyServiceImpl implements DummyService{
             theDummy = result.get();
         }
         else {
-            throw new RuntimeException("Dummy id " + theId + " not found");
+            throw new RuntimeException("Dummy id: " + theId + " not found");
         }
         return theDummy;
     }
     @Override
     public Dummy save(Dummy theDummy){return dummyRepository.save(theDummy);}
     @Override
-    public void deleteById(int theId){dummyRepository.deleteById(theId);}
+    public Dummy deleteById(int theId){dummyRepository.deleteById(theId);
+        return null;
+    }
 
 
 }

@@ -11,5 +11,5 @@ public interface DummyService {
 
     Dummy save(Dummy theDummy);
 
-    void deleteById(int theId);
+    Dummy deleteById(int theId);
 }

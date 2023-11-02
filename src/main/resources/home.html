@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Leaflet</title>
+    <title>WebTechProject - Alexander Bürklen & Phillip Frey</title>
 
     <!-- Leaflet CSS Integration -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <!-- styleTag für die Darstellung der Map -->
     <!-- vh = VerticalHeight -->
+    <!-- Body im StyleSheet für Anpassungen der Map  -->
     <style>
+        body{
+
+            margin: 0;
+            padding: 0;
+        }
 
         #map{
             width: 100%;
@@ -39,6 +45,32 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
 
-    osm.addTo(map);
+    //osm.addTo(map);
+
+    // OPVN Map
+    var OPNVKarte = L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: 'Map <a href="https://memomaps.de/">memomaps.de</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+   // OPNVKarte.addTo(map)
+
+
+
+
+    //GoogleMaps Ansichten
+    googleSat = L.tileLayer('http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3']
+    });
+    //googleSat.addTo(map);
+
+    googleStreets = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3']
+    });
+
+    googleStreets.addTo(map);
+
+
 
 </script>

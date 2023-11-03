@@ -26,7 +26,9 @@
     </style>
 </head>
 <body>
-<img src="file:///Users/phillipfrey/Desktop/A.B%20P.F.png" alt="Mein Bild">
+<!-- <img src="/markerIcon.png" alt="Mein Bild"> -->
+
+
 
 
 <!-- Um die Leaflet Map zu assign. -->
@@ -78,7 +80,12 @@
 
 
     //Marker mit PopUp
-    var singleMarker = L.marker([52.5200, 13.4050]);
+    var myIcon = L.icon({
+        iconUrl: 'markerIcon.png',
+        iconSize: [40, 40],
+
+    });
+    var singleMarker = L.marker([52.5200, 13.4050],{icon : myIcon});
     var popup = singleMarker.bindPopup('Hier sehen Sie das Zentrum von Berlin').openPopup()
     popup.addTo(map)
 

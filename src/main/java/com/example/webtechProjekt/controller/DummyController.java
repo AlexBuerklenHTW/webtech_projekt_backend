@@ -52,7 +52,7 @@ public class DummyController {
     @DeleteMapping("/dummys/{dummyId}")
     public String deleteDummy(@PathVariable int dummyId){
 
-        Dummy tempDummy = dummyService.deleteById(dummyId);
+        Dummy tempDummy = dummyService.findById(dummyId);
 
         if(tempDummy == null){
             throw new RuntimeException("Dummy id: " + dummyId + " not found");

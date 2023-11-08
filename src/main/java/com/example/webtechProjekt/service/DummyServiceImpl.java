@@ -36,9 +36,7 @@ public class DummyServiceImpl implements DummyService{
     @Override
     public Dummy save(Dummy theDummy){return dummyRepository.save(theDummy);}
     @Override
-    public Dummy deleteById(int theId){dummyRepository.deleteById(theId);
-        return null;
-    }
+    public void deleteById(int theId){dummyRepository.deleteById(theId);}
 
 
 }

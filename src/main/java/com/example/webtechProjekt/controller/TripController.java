@@ -2,21 +2,17 @@ package com.example.webtechProjekt.controller;
 
 import com.example.webtechProjekt.model.Trip;
 import com.example.webtechProjekt.service.TripService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @RestController
-@RequestMapping("/api")
+@RequiredArgsConstructor
+@RequestMapping("/apiTrip")
 public class TripController {
     private final TripService tripService;
-
-    @Autowired
-    public TripController(TripService theTripService){
-        tripService = theTripService;
-    }
 
     @GetMapping("/trips")
     public List<Trip> findAll(){

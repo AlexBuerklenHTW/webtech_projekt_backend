@@ -1,8 +1,13 @@
 package com.example.webtechProjekt.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Data
 @Table(name="trip")
 public class Trip {
     @Id
@@ -15,43 +20,6 @@ public class Trip {
     @Column(name="totalDistance")
     private double totalDistance;
 
-    public Trip(){}
-
-    public Trip(String name, double totalDistance) {
-        this.totalDistance = totalDistance;
-        this.name = name;
-    }
-
-    public double getTotalDistance() {
-        return totalDistance;
-    }
-
-    public void setTotalDistance(double totalDistance) {
-        this.totalDistance = totalDistance;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "Trip{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", totalDistance=" + totalDistance +
-                '}';
-    }
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Marker> markers = new ArrayList<>();
 }

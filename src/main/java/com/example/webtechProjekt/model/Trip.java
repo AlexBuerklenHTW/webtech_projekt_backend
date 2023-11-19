@@ -3,8 +3,8 @@ package com.example.webtechProjekt.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="dummy")
-public class Dummy {
+@Table(name="trip")
+public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -12,9 +12,22 @@ public class Dummy {
     @Column(name="name")
     private String name;
 
-    public Dummy(){}
-    public Dummy(String name) {
+    @Column(name="totalDistance")
+    private double totalDistance;
+
+    public Trip(){}
+
+    public Trip(String name, double totalDistance) {
+        this.totalDistance = totalDistance;
         this.name = name;
+    }
+
+    public double getTotalDistance() {
+        return totalDistance;
+    }
+
+    public void setTotalDistance(double totalDistance) {
+        this.totalDistance = totalDistance;
     }
 
     public String getName() {
@@ -35,9 +48,10 @@ public class Dummy {
 
     @Override
     public String toString() {
-        return "Dummy{" +
+        return "Trip{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", totalDistance=" + totalDistance +
                 '}';
     }
 }

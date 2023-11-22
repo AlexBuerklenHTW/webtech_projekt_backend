@@ -19,9 +19,9 @@ public class MarkerController {
     }
 
     @PostMapping("/markers")
-    public Marker addTrip(@RequestBody Marker theMarker){
+    public Marker addMarker(@RequestBody Marker theMarker){
 
-        theMarker.setId(0);
+        //theMarker.setId(0);
 
         return markerService.save(theMarker);
     }
@@ -39,13 +39,13 @@ public class MarkerController {
     }
 
     @PutMapping("/markers")
-    public Marker updateTrip(@RequestBody Marker theMarker){
+    public Marker updateMarker(@RequestBody Marker theMarker){
 
         return markerService.save(theMarker);
     }
 
     @DeleteMapping("/markers/{markersId}")
-    public String deleteTrip(@PathVariable int markersId){
+    public String deleteMarker(@PathVariable int markersId){
 
         Marker tempMarker = markerService.findById(markersId);
 
@@ -55,6 +55,6 @@ public class MarkerController {
 
         markerService.deleteById(markersId);
 
-        return "Deleted tripId: " + markersId;
+        return "Deleted markerId: " + markersId;
     }
 }

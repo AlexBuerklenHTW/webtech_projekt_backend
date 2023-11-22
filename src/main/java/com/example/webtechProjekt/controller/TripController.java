@@ -22,7 +22,15 @@ public class TripController {
     @PostMapping("/trips")
     public Trip addTrip(@RequestBody Trip theTrip){
 
-        theTrip.setId(0);
+        //theTrip.setId(0);
+
+        return tripService.save(theTrip);
+    }
+
+    @PostMapping("/trips/{tripId}/markers")
+    public Trip addTripMarkers(@RequestBody Trip theTrip){
+
+        //theTrip.setId(0);
 
         return tripService.save(theTrip);
     }

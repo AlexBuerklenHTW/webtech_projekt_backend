@@ -28,7 +28,7 @@ public class TripController {
     }
 
     @PostMapping("/trips/{tripId}/markers")
-    public Trip addTripMarkers(@RequestBody Trip theTrip){
+    public Trip addTripMarkers(@RequestBody Trip theTrip, @PathVariable String tripId){
 
         //theTrip.setId(0);
 

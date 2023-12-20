@@ -1,7 +1,9 @@
 package com.example.webtechProjekt.controller;
 
 import com.example.webtechProjekt.model.Marker;
+import com.example.webtechProjekt.model.Trip;
 import com.example.webtechProjekt.service.MarkerService;
+import com.example.webtechProjekt.service.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,18 +15,20 @@ public class MarkerController {
 
     private final MarkerService markerService;
 
+    private final TripService tripService;
+
     @GetMapping("/markers")
     public List<Marker> findAll(){
         return markerService.findAll();
     }
 
     @PostMapping("/markers")
-    public Marker addMarker(@RequestBody Marker theMarker){
-
-        //theMarker.setId(0);
-
+    public Marker addMarker(@RequestBody Marker theMarker, @RequestParam int tripId){
+        Trip trip = tripService.findById(tripId);
+        theMarker.setTrip(trip);
         return markerService.save(theMarker);
     }
+
 
     @GetMapping("/marker/{markerId}")
     public Marker getMarkers(@PathVariable int markerId){

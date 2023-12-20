@@ -1,5 +1,6 @@
 package com.example.webtechProjekt.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class Marker {
     private double lat;
     @Column(name="lng")
     private double lng;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "trip_id")
     private Trip trip;

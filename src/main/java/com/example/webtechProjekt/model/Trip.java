@@ -1,5 +1,6 @@
 package com.example.webtechProjekt.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,7 +20,7 @@ public class Trip {
 
     @Column(name="totalDistance")
     private double totalDistance;
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Marker> markers = new ArrayList<>();
 }

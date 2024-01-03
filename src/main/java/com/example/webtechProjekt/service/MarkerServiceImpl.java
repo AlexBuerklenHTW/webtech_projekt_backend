@@ -29,7 +29,7 @@ public class MarkerServiceImpl implements MarkerService{
             theMarker = result.get();
         }
         else {
-            throw new RuntimeException("Trip id: " + theId + " not found");
+            throw new RuntimeException("Marker id: " + theId + " not found");
         }
         return theMarker;
     }

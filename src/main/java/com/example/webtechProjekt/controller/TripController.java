@@ -27,14 +27,19 @@ public class TripController {
         return tripService.save(theTrip);
     }
 
-//    @PostMapping("/trips/{tripId}/markers")
-//    public Trip addTripMarkers(@RequestBody Trip theTrip){
-//
-//        //theTrip.setId(0);
-//
-//        return tripService.save(theTrip);
-//    }
+    @PatchMapping("/trips/{tripId}")
+    public Trip changeTripName(@RequestBody String newTripName, @PathVariable int tripId){
+        Trip trip = tripService.findById(tripId);
+        trip.setName(newTripName);
+        return tripService.save(trip);
+    }
 
+    @PostMapping("/trips/{tripId}")
+    public Trip addTotalDistance(@RequestBody Double totalDistance, @PathVariable int tripId){
+        Trip trip = tripService.findById(tripId);
+        trip.setTotalDistance(totalDistance);
+        return tripService.save(trip);
+    }
     @GetMapping("/trips/{tripId}")
     public Trip getTrips(@PathVariable int tripId){
 

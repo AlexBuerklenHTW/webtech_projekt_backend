@@ -1,4 +1,4 @@
-package com.example.webtechProjekt.service;
+package com.example.webtechProjekt.service.TripService;
 
 import com.example.webtechProjekt.model.Trip;
 

@@ -1,4 +1,4 @@
-package com.example.webtechProjekt.service;
+package com.example.webtechProjekt.service.MarkerService;
 
 import com.example.webtechProjekt.model.Marker;
 

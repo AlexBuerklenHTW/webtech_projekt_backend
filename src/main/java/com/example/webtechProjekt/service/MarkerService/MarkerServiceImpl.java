@@ -1,7 +1,8 @@
-package com.example.webtechProjekt.service;
+package com.example.webtechProjekt.service.MarkerService;
 
 import com.example.webtechProjekt.model.Marker;
 import com.example.webtechProjekt.repository.MarkerRepository;
+import com.example.webtechProjekt.service.MarkerService.MarkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MarkerServiceImpl implements MarkerService{
+public class MarkerServiceImpl implements MarkerService {
     private final MarkerRepository markerRepository;
 
     @Autowired

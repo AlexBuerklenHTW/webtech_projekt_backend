@@ -3,9 +3,11 @@ package com.example.webtechProjekt.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 @Table(name="marker")
 public class Marker {
     @Id
@@ -20,4 +22,10 @@ public class Marker {
     @ManyToOne
     @JoinColumn(name = "trip_id")
     private Trip trip;
+
+    public Marker(double lat, double lng, Trip trip) {
+        this.lat = lat;
+        this.lng = lng;
+        this.trip = trip;
+    }
 }

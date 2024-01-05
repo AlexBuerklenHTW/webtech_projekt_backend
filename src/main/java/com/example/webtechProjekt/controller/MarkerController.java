@@ -2,8 +2,8 @@ package com.example.webtechProjekt.controller;
 
 import com.example.webtechProjekt.model.Marker;
 import com.example.webtechProjekt.model.Trip;
-import com.example.webtechProjekt.service.MarkerService;
-import com.example.webtechProjekt.service.TripService;
+import com.example.webtechProjekt.service.MarkerService.MarkerService;
+import com.example.webtechProjekt.service.TripService.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +17,10 @@ public class MarkerController {
 
     private final TripService tripService;
 
-    @GetMapping("/markers")
-    public List<Marker> findAll(){
-        return markerService.findAll();
-    }
+//    @GetMapping("/markers")
+//    public List<Marker> findAll(){
+//        return markerService.findAll();
+//    }
 
     @PostMapping("/markers")
     public Marker addMarker(@RequestBody Marker theMarker, @RequestParam int tripId){
@@ -29,24 +29,23 @@ public class MarkerController {
         return markerService.save(theMarker);
     }
 
+//    @GetMapping("/marker/{markerId}")
+//    public Marker getMarkers(@PathVariable int markerId){
+//
+//        Marker theMarker = markerService.findById(markerId);
+//
+//        if(theMarker == null){
+//            throw new RuntimeException("Marker id: " + markerId + " not found");
+//        }
+//
+//        return theMarker;
+//    }
 
-    @GetMapping("/marker/{markerId}")
-    public Marker getMarkers(@PathVariable int markerId){
-
-        Marker theMarker = markerService.findById(markerId);
-
-        if(theMarker == null){
-            throw new RuntimeException("Marker id: " + markerId + " not found");
-        }
-
-        return theMarker;
-    }
-
-    @PutMapping("/markers")
-    public Marker updateMarker(@RequestBody Marker theMarker){
-
-        return markerService.save(theMarker);
-    }
+//    @PutMapping("/markers")
+//    public Marker updateMarker(@RequestBody Marker theMarker){
+//
+//        return markerService.save(theMarker);
+//    }
 
     @DeleteMapping("/markers/{markersId}")
     public String deleteMarker(@PathVariable int markersId){

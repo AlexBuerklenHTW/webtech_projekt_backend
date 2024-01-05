@@ -1,7 +1,7 @@
 package com.example.webtechProjekt.controller;
 
 import com.example.webtechProjekt.model.Trip;
-import com.example.webtechProjekt.service.TripService;
+import com.example.webtechProjekt.service.TripService.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +21,6 @@ public class TripController {
 
     @PostMapping("/trips")
     public Trip addTrip(@RequestBody Trip theTrip){
-
-        //theTrip.setId(0);
-
         return tripService.save(theTrip);
     }
 
@@ -40,6 +37,7 @@ public class TripController {
         trip.setTotalDistance(totalDistance);
         return tripService.save(trip);
     }
+
     @GetMapping("/trips/{tripId}")
     public Trip getTrips(@PathVariable int tripId){
 
@@ -48,14 +46,7 @@ public class TripController {
         if(theTrip == null){
             throw new RuntimeException("Trip id: " + tripId + " not found");
         }
-
         return theTrip;
-    }
-
-    @PutMapping("/trips")
-    public Trip updateTrip(@RequestBody Trip theTrip){
-
-        return tripService.save(theTrip);
     }
 
     @DeleteMapping("/trips/{tripId}")

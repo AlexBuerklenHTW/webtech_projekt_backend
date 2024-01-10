@@ -22,30 +22,22 @@ public class MarkerController {
         return markerService.findAll();
     }
 
+    @GetMapping("/markers/{markerId}")
+    public Marker getMarker(@PathVariable int markerId){
+        Marker theMarker = markerService.findById(markerId);
+
+        if(theMarker == null){
+            throw new RuntimeException("Marker id: " + markerId + " not found");
+        }
+        return theMarker;
+    }
+
     @PostMapping("/markers")
     public Marker addMarker(@RequestBody Marker theMarker, @RequestParam int tripId){
         Trip trip = tripService.findById(tripId);
         theMarker.setTrip(trip);
         return markerService.save(theMarker);
     }
-
-//    @GetMapping("/marker/{markerId}")
-//    public Marker getMarkers(@PathVariable int markerId){
-//
-//        Marker theMarker = markerService.findById(markerId);
-//
-//        if(theMarker == null){
-//            throw new RuntimeException("Marker id: " + markerId + " not found");
-//        }
-//
-//        return theMarker;
-//    }
-
-//    @PutMapping("/markers")
-//    public Marker updateMarker(@RequestBody Marker theMarker){
-//
-//        return markerService.save(theMarker);
-//    }
 
     @DeleteMapping("/markers/{markersId}")
     public String deleteMarker(@PathVariable int markersId){

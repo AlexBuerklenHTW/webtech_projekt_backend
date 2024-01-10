@@ -24,7 +24,7 @@ public class TripController {
         return tripService.save(theTrip);
     }
 
-    @PatchMapping("/trips/{tripId}")
+    @PostMapping("/tripsName/{tripId}")
     public Trip changeTripName(@RequestBody String newTripName, @PathVariable int tripId){
         Trip trip = tripService.findById(tripId);
         trip.setName(newTripName);

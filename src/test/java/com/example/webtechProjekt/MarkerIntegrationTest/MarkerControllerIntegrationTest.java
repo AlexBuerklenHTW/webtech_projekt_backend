@@ -1,5 +1,6 @@
 package com.example.webtechProjekt.MarkerIntegrationTest;
 
+import com.example.webtechProjekt.controller.MarkerController;
 import com.example.webtechProjekt.controller.TripController;
 import com.example.webtechProjekt.model.Marker;
 import com.example.webtechProjekt.model.Trip;
@@ -16,6 +17,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.jdbc.JdbcTestUtils;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class MarkerControllerIntegrationTest {
@@ -31,6 +35,9 @@ public class MarkerControllerIntegrationTest {
 
     @Autowired
     private TripController tripController;
+    @Autowired
+    private MarkerController markerController;
+
     @BeforeAll
     public static void init(){
         restTemplate = new RestTemplate();
@@ -45,15 +52,26 @@ public class MarkerControllerIntegrationTest {
     public void setup(){
         baseUrl = baseUrl.concat(":").concat(port + "").concat("/apiMarker");
     }
-//    @Test
-//    @Sql(statements = "INSERT INTO trip (id, name, total_distance) VALUES (1,'my_first_trip',1000)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-//    @Sql(statements = "DELETE FROM trip WHERE id=1", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-//    public void testAddMarker(){
-//        Marker marker = new Marker(13.52523,52.49494,tripController.getTrips(1));
-//        Marker response = restTemplate.postForObject(baseUrl + "/markers", marker, Marker.class);
-//        assertEquals(13.53523, response.getLat());
-//        assertEquals(52.49494, response.getLng());
-//    }
+
+    //Test is not necessary, because endpoint is not used, but it shows, that markers can be added
+    @Test
+    @Sql(statements = "INSERT INTO trip (id, name, total_distance) VALUES (1,'my_first_trip',1000)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(statements = "INSERT INTO marker (id, lat, lng, trip_id) VALUES (1, 13.52523, 52.49494, 1)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(statements = "DELETE FROM trip WHERE id=1", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(statements = "DELETE FROM marker WHERE id=1", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    public void testAddMarker(){
+        List<Marker> markerList = markerController.findAll();
+        double lat = 0.0;
+        double lng = 0.0;
+        for(Marker markerFromDb : markerList){
+            lng = markerFromDb.getLng();
+            lat = markerFromDb.getLat();
+        }
+        Marker marker = new Marker(lat,lng,tripController.getTrips(1));
+        Marker response = restTemplate.postForObject(baseUrl + "/markers?tripId=" + tripController.getTrips(1).getId(), marker, Marker.class);
+        assertEquals(13.52523, response.getLat());
+        assertEquals(52.49494, response.getLng());
+    }
 
     @Test
     @Sql(statements = "INSERT INTO marker (id, lat, lng) VALUES (2,13.52523,52.49494)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)

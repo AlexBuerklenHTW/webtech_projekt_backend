@@ -87,12 +87,12 @@ public class TripControllerIntegrationTest {
         assertEquals(4444, response.getTotalDistance());
     }
 
-//    @Test
-//    @Sql(statements = "INSERT INTO trip (id, name, total_distance) VALUES (6,'my_sixth_trip',6000)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-//    @Sql(statements = "DELETE FROM trip WHERE id=6", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-//    public void testChangeTripName(){
-//        String tripName = "my_new_sixth_trip";
-//        Trip response = restTemplate.patchForObject(baseUrl + "/trips/{tripId}", tripName, Trip.class, 6);
-//        assertEquals("my_new_sixth_trip", response.getName());
-//    }
+    @Test
+    @Sql(statements = "INSERT INTO trip (id, name, total_distance) VALUES (6,'my_sixth_trip',6000)", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(statements = "DELETE FROM trip WHERE id=6", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    public void testChangeTripName(){
+        String tripName = "my_new_sixth_trip";
+        Trip response = restTemplate.postForObject(baseUrl + "/tripsName/{tripId}", tripName, Trip.class, 6);
+        assertEquals("my_new_sixth_trip", response.getName());
+    }
 }

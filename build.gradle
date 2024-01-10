@@ -24,7 +24,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql:42.6.0'
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
-	testImplementation 'com.h2database:h2:1.4.200'
+//	testImplementation 'com.h2database:h2:1.4.200'
 }
 
 

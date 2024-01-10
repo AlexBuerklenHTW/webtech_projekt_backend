@@ -5,6 +5,9 @@ import com.example.webtechProjekt.service.TripService.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
@@ -25,9 +28,10 @@ public class TripController {
     }
 
     @PostMapping("/tripsName/{tripId}")
-    public Trip changeTripName(@RequestBody String newTripName, @PathVariable int tripId){
+    public Trip changeTripName(@RequestBody String newTripName, @PathVariable int tripId) throws UnsupportedEncodingException {
         Trip trip = tripService.findById(tripId);
-        trip.setName(newTripName);
+        String decodedName = URLDecoder.decode(newTripName, StandardCharsets.UTF_8);
+        trip.setName(decodedName);
         return tripService.save(trip);
     }
 

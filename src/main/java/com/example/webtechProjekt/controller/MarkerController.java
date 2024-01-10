@@ -17,10 +17,10 @@ public class MarkerController {
 
     private final TripService tripService;
 
-//    @GetMapping("/markers")
-//    public List<Marker> findAll(){
-//        return markerService.findAll();
-//    }
+    @GetMapping("/markers")
+    public List<Marker> findAll(){
+        return markerService.findAll();
+    }
 
     @PostMapping("/markers")
     public Marker addMarker(@RequestBody Marker theMarker, @RequestParam int tripId){

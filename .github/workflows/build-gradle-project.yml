@@ -7,12 +7,13 @@ jobs:
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
-      - name: Grant execute permission to Gradle wrapper
-        run: chmod +x ./gradlew
       - name: Checkout project sources
         uses: actions/checkout@v3
+      - name: Grant execute permission to Gradle wrapper
+        run: chmod +x ./gradlew
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Run build with Gradle Wrapper
-        run: /gradlew build
+        run: ./gradlew build
+
 

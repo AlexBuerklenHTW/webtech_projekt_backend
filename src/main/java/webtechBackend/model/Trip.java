@@ -1,4 +1,4 @@
-package com.example.webtechProjekt.model;
+package webtechBackend.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;

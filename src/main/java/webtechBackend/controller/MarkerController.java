@@ -1,9 +1,9 @@
-package com.example.webtechProjekt.controller;
+package webtechBackend.controller;
 
-import com.example.webtechProjekt.model.Marker;
-import com.example.webtechProjekt.model.Trip;
-import com.example.webtechProjekt.service.MarkerService.MarkerService;
-import com.example.webtechProjekt.service.TripService.TripService;
+import webtechBackend.model.Marker;
+import webtechBackend.model.Trip;
+import webtechBackend.service.MarkerService.MarkerService;
+import webtechBackend.service.TripService.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

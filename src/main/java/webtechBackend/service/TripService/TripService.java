@@ -1,6 +1,6 @@
-package com.example.webtechProjekt.service.TripService;
+package webtechBackend.service.TripService;
 
-import com.example.webtechProjekt.model.Trip;
+import webtechBackend.model.Trip;
 
 import java.util.List;
 

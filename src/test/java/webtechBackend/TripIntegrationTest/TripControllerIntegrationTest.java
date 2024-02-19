@@ -1,7 +1,7 @@
-package com.example.webtechProjekt.TripIntegrationTest;
+package webtechBackend.TripIntegrationTest;
 
-import com.example.webtechProjekt.model.Trip;
-import com.example.webtechProjekt.repository.TripRepository;
+import webtechBackend.model.Trip;
+import webtechBackend.repository.TripRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

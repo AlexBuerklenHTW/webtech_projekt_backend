@@ -1,11 +1,9 @@
-package com.example.webtechProjekt.MarkerIntegrationTest;
+package webtechBackend.MarkerIntegrationTest;
 
-import com.example.webtechProjekt.controller.MarkerController;
-import com.example.webtechProjekt.controller.TripController;
-import com.example.webtechProjekt.model.Marker;
-import com.example.webtechProjekt.model.Trip;
-import com.example.webtechProjekt.repository.MarkerRepository;
-import com.example.webtechProjekt.repository.TripRepository;
+import webtechBackend.controller.MarkerController;
+import webtechBackend.controller.TripController;
+import webtechBackend.model.Marker;
+import webtechBackend.repository.MarkerRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

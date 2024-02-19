@@ -1,8 +1,7 @@
-package com.example.webtechProjekt.service.TripService;
+package webtechBackend.service.TripService;
 
-import com.example.webtechProjekt.model.Trip;
-import com.example.webtechProjekt.repository.TripRepository;
-import com.example.webtechProjekt.service.TripService.TripService;
+import webtechBackend.model.Trip;
+import webtechBackend.repository.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

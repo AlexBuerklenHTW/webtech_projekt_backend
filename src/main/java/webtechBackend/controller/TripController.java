@@ -1,7 +1,7 @@
-package com.example.webtechProjekt.controller;
+package webtechBackend.controller;
 
-import com.example.webtechProjekt.model.Trip;
-import com.example.webtechProjekt.service.TripService.TripService;
+import webtechBackend.model.Trip;
+import webtechBackend.service.TripService.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

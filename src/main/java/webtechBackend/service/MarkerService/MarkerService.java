@@ -1,6 +1,6 @@
-package com.example.webtechProjekt.service.MarkerService;
+package webtechBackend.service.MarkerService;
 
-import com.example.webtechProjekt.model.Marker;
+import webtechBackend.model.Marker;
 
 import java.util.List;
 

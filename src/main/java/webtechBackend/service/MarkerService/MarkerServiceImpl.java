@@ -1,8 +1,7 @@
-package com.example.webtechProjekt.service.MarkerService;
+package webtechBackend.service.MarkerService;
 
-import com.example.webtechProjekt.model.Marker;
-import com.example.webtechProjekt.repository.MarkerRepository;
-import com.example.webtechProjekt.service.MarkerService.MarkerService;
+import webtechBackend.model.Marker;
+import webtechBackend.repository.MarkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

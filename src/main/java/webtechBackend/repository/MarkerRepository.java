@@ -1,6 +1,6 @@
-package com.example.webtechProjekt.repository;
+package webtechBackend.repository;
 
-import com.example.webtechProjekt.model.Marker;
+import webtechBackend.model.Marker;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

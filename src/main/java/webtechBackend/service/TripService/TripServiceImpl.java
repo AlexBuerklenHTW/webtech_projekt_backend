@@ -20,7 +20,6 @@ public class TripServiceImpl implements TripService {
     public List<Trip> findAll(){return tripRepository.findAll();}
     @Override
     public Trip findById(int theId){
-
         Optional<Trip> result = tripRepository.findById(theId);
 
         Trip theTrip;

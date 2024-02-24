@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/**")
                 .allowedMethods("*")
-                .allowedOrigins("https://webtech-frontend-b00q.onrender.com/")
+                .allowedOrigins("https://webtech-frontend-b00q.onrender.com")
                 .allowedHeaders("*");
     }
 }
